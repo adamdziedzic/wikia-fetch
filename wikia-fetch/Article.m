@@ -17,6 +17,7 @@
     article.title = dict[@"title"];
     article.originalHeight = dict[@"original_dimensions"][@"height"];
     article.originalWidth = dict[@"original_dimensions"][@"width"];
+    article.url = dict[@"url"];
     return article;
 }
 

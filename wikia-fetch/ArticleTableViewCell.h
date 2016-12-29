@@ -11,7 +11,7 @@
 @interface ArticleTableViewCell : UITableViewCell
 
 @property (strong) UILabel *titleLabel;
-@property (strong) UILabel *detailsLabel;
+@property (strong) UILabel *descriptionLabel;
 //fav icon
 //image
 

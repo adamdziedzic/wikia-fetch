@@ -6,12 +6,13 @@
 //  Copyright (c) 2016 Adam Dziedzic. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "ListViewController.h"
 #import "Article.h"
 #import "ArticleTableViewCell.h"
+#import "DetailsViewController.h"
 
 
-@interface ViewController () <NSURLSessionDataDelegate>
+@interface ListViewController () <NSURLSessionDataDelegate>
 
 @property NSURLSession *session;
 @property NSArray *articles;
@@ -19,7 +20,7 @@
 
 @end
 
-@implementation ViewController
+@implementation ListViewController
 
 - (instancetype)init {
     self = [super init];
@@ -59,28 +60,32 @@
     return 100.f;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    DetailsViewController *viewController = [[DetailsViewController alloc] initWithArticle:self.articles[(NSUInteger) indexPath.row]];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    navController.navigationBar.translucent = NO;
+    [self.navigationController presentViewController:navController animated:YES completion:nil];
+}
+
 
 #pragma mark - NSURLSessionDataDelegate
 
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {
-    NSLog(@"retrieved data: %@", data);
     [self.tempData appendData:data];
 }
 
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error {
-    NSLog(@"error code: %i", error.code);
     if (!error) {
         NSError *errorPlaceholder;
         NSDictionary *response = [NSJSONSerialization JSONObjectWithData:self.tempData options:nil error:&errorPlaceholder];
-        NSLog(@"Encoded data: %@", response[@"items"][0]);
-        NSLog(@"Parsing error: %@", error);
+        //todo if (errorPlaceholder) {alert about error}
         NSArray *unparsedItems = response[@"items"];
         NSMutableArray *parsedItems = [NSMutableArray new];
         for (uint i = 0; i < unparsedItems.count; i++) {
             parsedItems[i] = [Article fromDictionary:unparsedItems[i]];
         }
         self.articles = parsedItems;
-        NSLog(@"articles count: %u", self.articles.count);
         [self.tableView performSelectorOnMainThread:@selector(reloadData)
                                          withObject:nil
                                       waitUntilDone:NO];
@@ -89,7 +94,6 @@
         NSLog(@"error localized reason: %@", error.localizedFailureReason);
     }
 }
-
 
 
 - (void)fetchData {

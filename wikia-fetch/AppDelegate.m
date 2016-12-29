@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "ListViewController.h"
 #import "DCIntrospect.h"
 
 
@@ -26,7 +26,7 @@
 
 //    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[ViewController new]];
     UINavigationController *navigationController = [UINavigationController new];
-    [navigationController pushViewController:[[ViewController alloc] init] animated:YES];
+    [navigationController pushViewController:[[ListViewController alloc] init] animated:YES];
     self.window.rootViewController = navigationController;
 
     [self.window makeKeyAndVisible];

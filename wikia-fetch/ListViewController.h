@@ -11,6 +11,6 @@
 
 static NSString *const REUSE_IDENTIFIER = @"myCell";
 
-@interface ViewController : UITableViewController
+@interface ListViewController : UITableViewController
 
 @end

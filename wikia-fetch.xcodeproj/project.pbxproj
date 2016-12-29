@@ -9,13 +9,14 @@
 /* Begin PBXBuildFile section */
 		2D9B823A7706C5942BB2AC56 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D9B8A40CBE033A6654BCC46 /* Info.plist */; };
 		2D9B832616F8D8AE3089DEA8 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B8642294E67F616919FB0 /* Article.m */; };
+		2D9B835F6C9D1EA17233EFAE /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B85DF114573C213A1D360 /* DetailsViewController.m */; };
 		2D9B841553F08902D563ECA2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B8FB8A842F8A9BBA281EE /* main.m */; };
 		2D9B84F72A316F5048BC51D2 /* ArticleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B8CCA3ABE26005DA25A80 /* ArticleTableViewCell.m */; };
 		2D9B85DFFEEB2FC86BE40C04 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D9B80089C1BEFC562CFA13E /* Info.plist */; };
 		2D9B860FC208D0A5AB803345 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D9B8D417BE5E1AA4F5D77AD /* Assets.xcassets */; };
 		2D9B882B06249DA2E5ED294D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D9B8D7ACC074EFD6DA686BA /* Info.plist */; };
 		2D9B886591FA12A0AFD7CF87 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B8E0F6E9235C22DDED201 /* AppDelegate.m */; };
-		2D9B8B166CC8B2E1B216A123 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B80775EF8D17EE820DA48 /* ViewController.m */; };
+		2D9B8B166CC8B2E1B216A123 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B80775EF8D17EE820DA48 /* ListViewController.m */; };
 		2D9B8C954A35602AA28F5534 /* wikia_fetchUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B822BEE9A19A226B720AF /* wikia_fetchUITests.m */; };
 		2D9B8FAFE7DE3055E974D077 /* wikia_fetchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B88EFAE6AFBB739928E78 /* wikia_fetchTests.m */; };
 		665424551E11C08D009D9DDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 665424531E11C08D009D9DDE /* LaunchScreen.storyboard */; };
@@ -46,14 +47,17 @@
 		1E554DA43C22CEA0F321EBD5 /* libPods-wikia-fetchTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wikia-fetchTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E55832C2E73ED852881EE8F /* Pods-wikia-fetchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wikia-fetchUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wikia-fetchUITests/Pods-wikia-fetchUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		2D9B80089C1BEFC562CFA13E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
-		2D9B80775EF8D17EE820DA48 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2D9B80775EF8D17EE820DA48 /* ListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		2D9B80EE3184FB4CEEC9CD88 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		2D9B82271B80C0B4672451B3 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		2D9B822BEE9A19A226B720AF /* wikia_fetchUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wikia_fetchUITests.m; sourceTree = "<group>"; };
+		2D9B85DF114573C213A1D360 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		2D9B8642294E67F616919FB0 /* Article.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Article.m; sourceTree = "<group>"; };
 		2D9B87986566EE18C290DDA1 /* wikia-fetchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "wikia-fetchUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D9B87A665CDB38D2107A535 /* wikia-fetchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "wikia-fetchTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D9B88EFAE6AFBB739928E78 /* wikia_fetchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wikia_fetchTests.m; sourceTree = "<group>"; };
 		2D9B892975D027004A03A221 /* ArticleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleTableViewCell.h; sourceTree = "<group>"; };
-		2D9B892D32A34123D4B7D8DE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		2D9B892D32A34123D4B7D8DE /* ListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		2D9B8A40CBE033A6654BCC46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		2D9B8B0D35CF878B2154A08A /* Article.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Article.h; sourceTree = "<group>"; };
 		2D9B8CCA3ABE26005DA25A80 /* ArticleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleTableViewCell.m; sourceTree = "<group>"; };
@@ -119,12 +123,15 @@
 				2D9B87719516C6449B2F9A34 /* Supporting Files */,
 				2D9B8F09C87886B3031EFDF5 /* AppDelegate.h */,
 				2D9B8E0F6E9235C22DDED201 /* AppDelegate.m */,
-				2D9B892D32A34123D4B7D8DE /* ViewController.h */,
-				2D9B80775EF8D17EE820DA48 /* ViewController.m */,
+				2D9B892D32A34123D4B7D8DE /* ListViewController.h */,
+				2D9B80775EF8D17EE820DA48 /* ListViewController.m */,
 				2D9B8642294E67F616919FB0 /* Article.m */,
 				2D9B8B0D35CF878B2154A08A /* Article.h */,
 				2D9B8CCA3ABE26005DA25A80 /* ArticleTableViewCell.m */,
 				2D9B892975D027004A03A221 /* ArticleTableViewCell.h */,
+				2D9B85DF114573C213A1D360 /* DetailsViewController.m */,
+				2D9B82271B80C0B4672451B3 /* DetailsViewController.h */,
+				2D9B80EE3184FB4CEEC9CD88 /* Constants.h */,
 			);
 			path = "wikia-fetch";
 			sourceTree = "<group>";
@@ -457,9 +464,10 @@
 			files = (
 				2D9B841553F08902D563ECA2 /* main.m in Sources */,
 				2D9B886591FA12A0AFD7CF87 /* AppDelegate.m in Sources */,
-				2D9B8B166CC8B2E1B216A123 /* ViewController.m in Sources */,
+				2D9B8B166CC8B2E1B216A123 /* ListViewController.m in Sources */,
 				2D9B832616F8D8AE3089DEA8 /* Article.m in Sources */,
 				2D9B84F72A316F5048BC51D2 /* ArticleTableViewCell.m in Sources */,
+				2D9B835F6C9D1EA17233EFAE /* DetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

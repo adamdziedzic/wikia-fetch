@@ -7,7 +7,7 @@
 #import "Article.h"
 #import "View+MASAdditions.h"
 #import "UIImageView+WebCache.h"
-
+#import "Constants.h"
 
 @interface ArticleTableViewCell ()
 
@@ -24,12 +24,12 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         _titleLabel = [[UILabel alloc] init];
-        _detailsLabel = [[UILabel alloc] init];
-        _detailsLabel.lineBreakMode = NSLineBreakByTruncatingTail;
-        _detailsLabel.numberOfLines = 2;
+        _descriptionLabel = [[UILabel alloc] init];
+        _descriptionLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+        _descriptionLabel.numberOfLines = 2;
         _thumbnail = [[UIImageView alloc] init];
         [self addSubview:_titleLabel];
-        [self addSubview:_detailsLabel];
+        [self addSubview:_descriptionLabel];
         [self addSubview:_thumbnail];
     }
 
@@ -38,21 +38,22 @@
 
 
 - (void)layoutSubviews {
+    __weak typeof(self) wself = self;
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.mas_top).offset(5);
-        make.left.equalTo(self.thumbnail.mas_right).offset(5);
-        make.right.lessThanOrEqualTo(self.mas_right).offset(-5);
+        make.top.equalTo(wself.mas_top).offset(SMALL_OFFSET);
+        make.left.equalTo(wself.thumbnail.mas_right).offset(SMALL_OFFSET);
+        make.right.lessThanOrEqualTo(wself.mas_right).offset(-SMALL_OFFSET);
     }];
-    [self.detailsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.thumbnail.mas_right).offset(5);
-        make.top.equalTo(self.titleLabel.mas_bottom).offset(5);
-        make.right.lessThanOrEqualTo(self.mas_right).offset(-5);
+    [self.descriptionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(wself.thumbnail.mas_right).offset(SMALL_OFFSET);
+        make.top.equalTo(wself.titleLabel.mas_bottom).offset(SMALL_OFFSET);
+        make.right.lessThanOrEqualTo(wself.mas_right).offset(-SMALL_OFFSET);
     }];
     [self.thumbnail mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.mas_top).offset(5);
-        make.left.equalTo(self.mas_left).offset(5);
-        make.bottom.equalTo(self.mas_bottom).offset(-5);
-        make.width.equalTo(self.thumbnail.mas_height).multipliedBy(self.thumbnailAspectRatio);
+        make.top.equalTo(wself.mas_top).offset(SMALL_OFFSET);
+        make.left.equalTo(wself.mas_left).offset(SMALL_OFFSET);
+        make.bottom.equalTo(wself.mas_bottom).offset(-SMALL_OFFSET);
+        make.width.equalTo(wself.thumbnail.mas_height).multipliedBy(wself.thumbnailAspectRatio);
     }];
     [super layoutSubviews];
 }
@@ -60,7 +61,7 @@
 
 - (void)customizeCell:(Article *)article {
     self.titleLabel.text = article.title;
-    self.detailsLabel.text = article.abstract;
+    self.descriptionLabel.text = article.abstract;
     self.thumbnailAspectRatio = [article.originalHeight floatValue] / [article.originalWidth floatValue];
     [self.thumbnail sd_setImageWithURL:[NSURL URLWithString:article.thumbnailURL] ];
 }

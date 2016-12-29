@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSString *thumbnailURL;
 @property (nonatomic, strong) NSNumber *originalWidth;
 @property (nonatomic, strong) NSNumber *originalHeight;
+@property (nonatomic, strong) NSString *url;
 
 + (Article *)fromDictionary:(NSDictionary *)dict;
 
