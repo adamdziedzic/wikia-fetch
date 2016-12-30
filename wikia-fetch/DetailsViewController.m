@@ -88,8 +88,10 @@
     //todo fetch base url from response
     NSString *urlString = [@"http://gameofthrones.wikia.com" stringByAppendingString:self.article.url];
     NSURL *url = [NSURL URLWithString:urlString];
-    NSLog(@"going into safari, can open url: %d", [[UIApplication sharedApplication] canOpenURL:url]);
-    [[UIApplication sharedApplication] openURL:url options:nil completionHandler:nil];
+    if ([[UIApplication sharedApplication] canOpenURL:url]) {
+        [[UIApplication sharedApplication] openURL:url options:nil completionHandler:nil];
+    }
+    //todo else alert error
 }
 
 @end

@@ -27,6 +27,7 @@
     if (self) {
         _session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:@"background"] delegate:self delegateQueue:nil];
         _articles = @[];
+        self.title = @"Characters";
     }
 
     return self;
@@ -63,9 +64,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     DetailsViewController *viewController = [[DetailsViewController alloc] initWithArticle:self.articles[(NSUInteger) indexPath.row]];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
-    navController.navigationBar.translucent = NO;
-    [self.navigationController presentViewController:navController animated:YES completion:nil];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 
