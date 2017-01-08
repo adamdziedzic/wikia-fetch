@@ -64,6 +64,7 @@
 		2D9B8D417BE5E1AA4F5D77AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2D9B8D7ACC074EFD6DA686BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		2D9B8E0F6E9235C22DDED201 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2D9B8E1211B57F2B35806C49 /* FavouriteSwitchChangedDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteSwitchChangedDelegate.h; sourceTree = "<group>"; };
 		2D9B8F09C87886B3031EFDF5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2D9B8F532DA36BD251B97209 /* wikia-fetch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "wikia-fetch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D9B8FB8A842F8A9BBA281EE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -132,6 +133,7 @@
 				2D9B85DF114573C213A1D360 /* DetailsViewController.m */,
 				2D9B82271B80C0B4672451B3 /* DetailsViewController.h */,
 				2D9B80EE3184FB4CEEC9CD88 /* Constants.h */,
+				2D9B8E1211B57F2B35806C49 /* FavouriteSwitchChangedDelegate.h */,
 			);
 			path = "wikia-fetch";
 			sourceTree = "<group>";

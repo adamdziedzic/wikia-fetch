@@ -7,16 +7,12 @@
 #import <UIKit/UIKit.h>
 
 @class Article;
+@protocol FavouriteSwitchChangedDelegate;
 
 @interface ArticleTableViewCell : UITableViewCell
 
-@property (strong) UILabel *titleLabel;
-@property (strong) UILabel *descriptionLabel;
-//fav icon
-//image
+@property (weak) id<FavouriteSwitchChangedDelegate> switchDelegate;
 
-@property(nonatomic) float thumbnailAspectRatio;
-
-- (void)customizeCell:(Article *) article;
+- (void)customizeCell:(Article *)article isFavourite:(BOOL)favourite;
 
 @end

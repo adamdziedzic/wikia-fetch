@@ -10,13 +10,14 @@
 #import "Article.h"
 #import "ArticleTableViewCell.h"
 #import "DetailsViewController.h"
+#import "FavouriteSwitchChangedDelegate.h"
 
-
-@interface ListViewController () <NSURLSessionDataDelegate>
+@interface ListViewController () <NSURLSessionDataDelegate, FavouriteSwitchChangedDelegate>
 
 @property NSURLSession *session;
 @property NSArray *articles;
 @property NSMutableData *tempData;
+@property NSMutableSet *favouritesIds;
 
 @end
 
@@ -28,6 +29,7 @@
         _session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:@"background"] delegate:self delegateQueue:nil];
         _articles = @[];
         self.title = @"Characters";
+        self.tableView.estimatedRowHeight = 50.f;
     }
 
     return self;
@@ -38,14 +40,26 @@
     [self fetchData];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    self.favouritesIds = [NSMutableSet setWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"favouriteArticles"]];
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [[NSUserDefaults standardUserDefaults] setObject:[self.favouritesIds allObjects] forKey:@"favouriteArticles"];
+}
+
 #pragma mark - UITableView
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ArticleTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:REUSE_IDENTIFIER];
     if (!cell) {
         cell = [[ArticleTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:REUSE_IDENTIFIER];
+        cell.switchDelegate = self;
     }
-    [cell customizeCell:self.articles[(NSUInteger) indexPath.row]];
+    Article *article = self.articles[(NSUInteger) indexPath.row];
+    [cell customizeCell:article isFavourite:[self.favouritesIds containsObject:article.myId] ];
     return cell;
 }
 
@@ -99,6 +113,16 @@
     NSURL *url = [[NSURL alloc] initWithString:@"https://gameofthrones.wikia.com/api/v1/Articles/Top?expand=1&limit=75&category=Characters"];
     self.tempData = [NSMutableData new];
     [[self.session dataTaskWithURL:url] resume];
+}
+
+#pragma mark FavouriteSwitchDelegate
+
+- (void)switchWithId:(NSNumber *)objectId changedToState:(BOOL)state {
+    if (state) {
+        [self.favouritesIds addObject:objectId];
+    } else {
+        [self.favouritesIds removeObject:objectId];
+    }
 }
 
 @end
